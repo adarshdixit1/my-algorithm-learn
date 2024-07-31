@@ -1,12 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import RouteManger from "./routes/RouterManger"
 
 function App() {
   return (
-    <div>
-
-    </div>
+    <>
+      <RouteManger />
+    </>
   );
 }
 
