@@ -2,13 +2,13 @@ import React from "react";
 
 const Index = () => {
     // solve the fibonacci sequence
-    const fibonacciSequence = (n: number) => {
-        const fib = [0, 1];
-        for (let i = 2; i < n; i++) {
-            fib[i] = fib[i - 1] + fib[i - 2]
-        }
-        return fib
-    }
+    // const fibonacciSequence = (n: number) => {
+    //     const fib = [0, 1];
+    //     for (let i = 2; i < n; i++) {
+    //         fib[i] = fib[i - 1] + fib[i - 2]
+    //     }
+    //     return fib
+    // }
 
     // factorial function 
     const calculatefactorial = (n: number): number => {
@@ -65,16 +65,16 @@ const Index = () => {
     }
 
     // optimize
-    const isPowerOfTwoBitWise=(n:number):boolean=>{
-        if(n<1){
-            return false
-        }
-        return (n & (n-1)) === 0
-    }
+    // const isPowerOfTwoBitWise=(n:number):boolean=>{
+    //     if(n<1){
+    //         return false
+    //     }
+    //     return (n & (n-1)) === 0
+    // }
 
     return (
         <div>
-            <>{console.log("--->", fibonacciSequence(3))}</>
+            {/* <>{console.log("--->", fibonacciSequence(3))}</> */}
             <h1>
                 fibonacci Sequence
             </h1>
