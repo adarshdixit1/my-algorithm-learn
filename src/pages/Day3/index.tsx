@@ -4,7 +4,7 @@ const Index = () => {
   let old_arr = [-5, 4, 5, 6, 8, 10, 56];
   old_arr.sort((a, b) => a - b);
   const linearSearch = (arr: number[], target: string | number): number => {
-    for (let i = 0; i < arr.length - 1, i++; ) {
+    for (let i = 0; i < arr.length - 1, i++;) {
       if (arr[i] === target) {
         return i;
       }
@@ -32,25 +32,40 @@ const Index = () => {
   };
 
 
-//   recursive binary search
-const recursiveBinarySearch=(arr:number[],targetValue:number):number=>{
-    return helperSearch(arr,targetValue, 0, arr.length-1)
-}
+  //   recursive binary search
+  const recursiveBinarySearch = (arr: number[], targetValue: number): number => {
+    return helperSearch(arr, targetValue, 0, arr.length - 1)
+  }
 
-const  helperSearch =(arr:number[], target:number, leftIndex:number, rightIndex:number):number=>{
-    if(leftIndex>rightIndex){
-        return -1
+  const helperSearch = (arr: number[], target: number, leftIndex: number, rightIndex: number): number => {
+    if (leftIndex > rightIndex) {
+      return -1
     }
-    let middleIndex = Math.floor((leftIndex + rightIndex)/2)
-    if(target === arr[middleIndex]){
-        return middleIndex
+    let middleIndex = Math.floor((leftIndex + rightIndex) / 2)
+    if (target === arr[middleIndex]) {
+      return middleIndex
     }
-    if(target< arr[middleIndex]){
-      return  helperSearch(arr,target,leftIndex,middleIndex+1)
-    }else{
-       return helperSearch(arr,target,middleIndex+1,rightIndex)
+    if (target < arr[middleIndex]) {
+      return helperSearch(arr, target, leftIndex, middleIndex + 1)
+    } else {
+      return helperSearch(arr, target, middleIndex + 1, rightIndex)
     }
-}
+  }
+
+  // Insertion sort
+
+  const insertionSort = (arr: number[]): number[] => {
+    for (let i = 1; i < arr.length; i++) {
+      let numberToInsert = arr[i]
+      let j = i - 1;
+      while (j >= 0 && arr[j] > numberToInsert) {
+        arr[j + 1] = arr[j]
+        j = j - 1
+      }
+      arr[j + 1] = numberToInsert
+    }
+    return arr
+  }
 
 
   return (
@@ -60,7 +75,7 @@ const  helperSearch =(arr:number[], target:number, leftIndex:number, rightIndex:
         {linearSearch(old_arr, 5)}
         <p>binary search index of 56 in a array {binarySearch(old_arr, 4)}</p>
         <p>recursive binary search index of 56 in a array {recursiveBinarySearch(old_arr, 56)}</p>
-
+        <p>insertion sort {insertionSort(old_arr)}</p>
       </div>
     </>
   );
