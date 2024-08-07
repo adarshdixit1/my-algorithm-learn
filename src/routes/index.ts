@@ -1,4 +1,4 @@
-import { Day1, Day2,Day3, Sorting } from "../pages/index";
+import { Day1, Day2,Day3, Sorting,QuickSort } from "../pages/index";
 
 const publicRoutes = [
   {
@@ -16,6 +16,10 @@ const publicRoutes = [
   {
     path: "/sorting",
     component: Sorting,
+  },
+  {
+    path: "/quick-sort",
+    component: QuickSort,
   },
 ];
 
