@@ -1,4 +1,4 @@
-import { Day1, Day2,Day3, Sorting,QuickSort,SortingQuestion } from "../pages/index";
+import { Day1, Day2,Day3, Sorting,QuickSort,SortingQuestion,DSAIntro } from "../pages/index";
 
 const publicRoutes = [
   {
@@ -24,6 +24,10 @@ const publicRoutes = [
   {
     path: "/sort-misc",
     component: SortingQuestion,
+  },
+  {
+    path: "/dsa-introduction",
+    component: DSAIntro,
   },
 ];
 

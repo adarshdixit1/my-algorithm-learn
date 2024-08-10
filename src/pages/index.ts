@@ -4,4 +4,6 @@ export { default as Day3 } from "./Day3";
 export { default as Sorting } from "./Sorting";
 export {default as QuickSort} from "./QuickSort"
 export {default as SortingQuestion} from "./SortingQuestion"
+export {default as DSAIntro} from "./DSAIntro"
+
 
