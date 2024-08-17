@@ -50,8 +50,8 @@ const Index = () => {
     front: number;
     enqueue: (element: string | number) => void;
     optimizeDequeue: () => string | number | undefined;
-    isEmpty:()=>boolean;
-    peek:()=>null | number | string;
+    isEmpty: () => boolean;
+    peek: () => null | number | string;
     size: () => number;
     print: () => void;
   };
@@ -76,26 +76,113 @@ const Index = () => {
       return dequeuedItem;
     },
 
-    isEmpty(){
-        return this.rear- this.front === 0
+    isEmpty() {
+      return this.rear - this.front === 0;
     },
 
-    peek(){
-        return this.item[this.front]
+    peek() {
+      return this.item[this.front];
     },
 
     size() {
-        return this.rear - this.front;
-      },
-  
+      return this.rear - this.front;
+    },
+
     print() {
-        console.log(this.item);
-      },
+      console.log(this.item);
+    },
+  };
+
+  //   circular Queue
+  interface CircularQueueType {
+    item: (string | number)[];
+    rear: number;
+    front: number;
+    capacity: number;
+    enqueue: (element: string | number) => void;
+    optimizeDequeue: () => string | number | undefined;
+    isEmpty: () => boolean;
+    peek: () => string | number | null;
+    size: () => number;
+    print: () => void;
   }
 
+  // const circularQueue: CircularQueueType={
 
+  //     item: new Array(capacity),
+  //     rear: 0,
+  //     front: 0,
+  //     capacity,
+  // }
 
   return <></>;
 };
+
+interface CircularQueueType {
+  item: (string | number)[];
+  rear: number;
+  front: number;
+  capacity: number;
+  enqueue: (element: string | number) => void;
+  optimizeDequeue: () => string | number | undefined;
+  isEmpty: () => boolean;
+  peek: () => string | number | null;
+  size: () => number;
+  print: () => void;
+}
+
+function createCircularQueue(capacity: number): CircularQueueType {
+  const queue: CircularQueueType = {
+    item: new Array(capacity),
+    rear: 0,
+    front: 0,
+    capacity,
+
+    enqueue(element: string | number) {
+      if ((this.rear + 1) % this.capacity === this.front) {
+        throw new Error("Queue is full");
+      }
+      this.item[this.rear] = element;
+      this.rear = (this.rear + 1) % this.capacity;
+    },
+
+    optimizeDequeue() {
+      if (this.isEmpty()) {
+        return undefined;
+      }
+      const dequeuedItem = this.item[this.front];
+      this.item[this.front] = undefined as any;
+      this.front = (this.front + 1) % this.capacity;
+      return dequeuedItem;
+    },
+
+    isEmpty() {
+      return this.front === this.rear;
+    },
+
+    peek() {
+      return this.isEmpty() ? null : this.item[this.front];
+    },
+
+    size() {
+      return (this.rear + this.capacity - this.front) % this.capacity;
+    },
+
+    print() {
+      console.log(this.item);
+    },
+  };
+
+  return queue;
+}
+
+// Usage
+const circularQueue = createCircularQueue(5);
+
+circularQueue.enqueue(10);
+circularQueue.enqueue(20);
+console.log(circularQueue.optimizeDequeue());
+console.log(circularQueue.size());
+circularQueue.print(); 
 
 export default Index;
