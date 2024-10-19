@@ -1,36 +1,37 @@
+import { publicRoutesConst } from "../constant";
 import { Day1, Day2,Day3,Day4, Sorting,QuickSort,SortingQuestion,DSAIntro } from "../pages/index";
 
 const publicRoutes = [
   {
-    path: "/",
+    path: publicRoutesConst.day1,
     component: Day1,
   },
   {
-    path: "/day2",
+    path: publicRoutesConst.day2,
     component: Day2,
   },
   {
-    path: "/day3",
+    path: publicRoutesConst.day3,
     component: Day3,
   },
   {
-    path: "/day4",
+    path: publicRoutesConst.day4,
     component: Day4,
   },
   {
-    path: "/sorting",
+    path: publicRoutesConst.SORTING,
     component: Sorting,
   },
   {
-    path: "/quick-sort",
+    path: publicRoutesConst.QUICK_SORT,
     component: QuickSort,
   },
   {
-    path: "/sort-misc",
+    path:publicRoutesConst.Sorting_Question,
     component: SortingQuestion,
   },
   {
-    path: "/dsa-introduction",
+    path: publicRoutesConst.DSA_Intro,
     component: DSAIntro,
   },
 ];
